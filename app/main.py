@@ -40,6 +40,5 @@ def get_dashboard(request: Request,
 
 
   iframeUrl = METABASE_SITE_URL + "/embed/dashboard/" + get_token(payload) + "#bordered=false&titled=false"
-  print(iframeUrl)
   return templates.TemplateResponse("base.html", {"request": request,
                                                   "iframeUrl": iframeUrl})
