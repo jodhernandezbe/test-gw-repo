@@ -24,10 +24,10 @@ def get_token(payload):
     return jwt.encode(payload, METABASE_SECRET_KEY, algorithm="HS256")
 
 
-@app.get('/clients/{client_id}')
+@app.get('/{client_id}')
 def get_dashboard(request: Request,
                 client_id: int = Path(title="The client ID"),
-                month_date :str = Query(title="Query month", regex="^[0-9]{4}-[0-9]{2}$")):
+                month_date :str = Query(title="Query month", regex="^[0-9]{4}-[0-9]{2}$", default='2022-01')):
 
   payload = {
   "resource": {"dashboard": 30},
